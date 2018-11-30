@@ -19,9 +19,9 @@ class TestKaraoke < MiniTest::Test
     @song3.title => @song3
     }
 
-    @room1 = Room.new(10, @songs)
-    @room2 = Room.new(7, @songs)
-    @room3 = Room.new(4, @songs)
+    @room1 = Room.new(3, @songs)
+    @room2 = Room.new(4, @songs)
+    @room3 = Room.new(10, @songs)
 
     @rooms = [@room1, @room2, @room3]
 
@@ -38,7 +38,7 @@ class TestKaraoke < MiniTest::Test
   end
 
   def test_karaoke_rooms__room2_capacity
-    assert_equal(7, @karaoke.rooms[1].capacity)
+    assert_equal(4, @karaoke.rooms[1].capacity)
   end
 
   def test_karaoke_rooms__room3_song2_artist
@@ -49,7 +49,14 @@ class TestKaraoke < MiniTest::Test
     assert_equal(200, @karaoke.till)
   end
 
+  def test_karaoke_assign_guests_to_first_suitable_room
+    @karaoke.assign_guests_to_first_available_room(@guests)
+    assert_equal(5,@karaoke.rooms[2].guests.length)
+  end
 
-
+  def test_karaoke_assign_guests_to_first_suitable_room__guests
+    @karaoke.assign_guests_to_first_available_room(@guests)
+    assert_equal(5,@karaoke.guests.length)
+  end
 
 end
