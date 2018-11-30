@@ -33,7 +33,8 @@ class TestKaraoke < MiniTest::Test
 
     @guests = [@guest1, @guest2, @guest3, @guest4, @guest5]
 
-    @karaoke = Karaoke.new(@rooms, 200)
+    @karaoke = Karaoke.new(@rooms, 200,1)
+    @karaoke2 = Karaoke.new(@rooms, 200,2)
 
   end
 
@@ -57,6 +58,14 @@ class TestKaraoke < MiniTest::Test
   def test_karaoke_assign_guests_to_first_suitable_room__guests
     @karaoke.assign_guests_to_first_available_room(@guests)
     assert_equal(5,@karaoke.guests.length)
+  end
+
+  def test_guest_affordability__true
+    assert_equal(true, @karaoke.all_guests_can_afford_entry?(@guests))
+  end
+
+  def test_guest_affordability__false
+    assert_equal(false, @karaoke2.all_guests_can_afford_entry?(@guests))
   end
 
 end
