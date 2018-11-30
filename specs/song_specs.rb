@@ -5,7 +5,7 @@ require_relative('../song')
 class TestSong < MiniTest::Test
 
   def setup
-    @song1 = Song.new("Fear of the Dark", "Iron Maiden")
+    @song1 = Song.new("Fear of the Dark", "Iron Maiden", "I am a man who walks alone")
   end
 
   def test_song_has_title
@@ -14,6 +14,10 @@ class TestSong < MiniTest::Test
 
   def test_song_has_artist
     assert_equal('Iron Maiden', @song1.artist)
+  end
+
+  def test_song_has_lyrics
+    assert_equal('I am a man who walks alone', @song1.lyrics)
   end
 
 
