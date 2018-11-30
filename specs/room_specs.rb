@@ -27,6 +27,7 @@ class TestRoom < MiniTest::Test
     @guests = [@guest1, @guest2, @guest3, @guest4, @guest5]
 
     @room1 = Room.new(10, @songs)
+    @room2 = Room.new(4, @songs)
 
   end
 
@@ -34,19 +35,27 @@ class TestRoom < MiniTest::Test
     assert_equal(10, @room1.capacity)
   end
 
-  def test_room_has_songs
+  def test_room_has_songs__check_lyrics
     assert_equal('I am a man who walks alone', @room1.songs['Fear of the Dark'].lyrics)
   end
 
   def test_room_add_guests__check_guest_2
     @room1.add_guests(@guests)
-    assert("Sarah", @room1.guests[1].name)
+    assert_equal("Sarah", @room1.guests[1].name)
   end
 
   def test_room_remove_guests__check_guests_array
     @room1.add_guests(@guests)
     @room1.remove_guests
-    assert([], @room1.guests)
+    assert_equal([], @room1.guests)
+  end
+
+  def test_check_room_capacity__true
+    assert_equal(true, @room1.can_take_guests?(@guests))
+  end
+
+  def test_check_room_capacity__false
+    assert_equal(false, @room2.can_take_guests?(@guests))
   end
 
 end
