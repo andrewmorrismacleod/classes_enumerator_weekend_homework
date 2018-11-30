@@ -1,6 +1,6 @@
 class Room
 
-  attr_reader :capacity, :songs, :guests
+  attr_reader :capacity, :songs, :guests, :available_space
 
   def initialize(capacity, songs)
     @capacity = capacity
@@ -10,8 +10,13 @@ class Room
   end
 
   def add_guests(guests)
-    @guests = guests
+
     @available_space = @capacity - @guests.length
+
+    if can_take_guests?(guests)
+      @guests = guests
+    end
+
   end
 
   def remove_guests()

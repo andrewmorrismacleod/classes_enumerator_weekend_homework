@@ -58,4 +58,9 @@ class TestRoom < MiniTest::Test
     assert_equal(false, @room2.can_take_guests?(@guests))
   end
 
+  def test_check_room_add_guests__false
+    @room2.add_guests(@guests)
+    assert_equal(4,@room2.available_space )
+  end
+
 end
