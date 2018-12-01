@@ -70,12 +70,4 @@ class TestRoom < MiniTest::Test
     assert_equal(5, @room1.bar_tab)
   end
 
-  def test_play_song_is_favourite
-    @room1.add_guests(@guests)
-
-
-  end
-
-  def test_play_song_is_not_favourite
-
 end

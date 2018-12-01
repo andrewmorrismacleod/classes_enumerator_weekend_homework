@@ -20,5 +20,4 @@ class TestSong < MiniTest::Test
     assert_equal('I am a man who walks alone', @song1.lyrics)
   end
 
-
 end
