@@ -29,6 +29,7 @@ class TestRoom < MiniTest::Test
     @room1 = Room.new(10, @songs)
     @room2 = Room.new(4, @songs)
 
+
   end
 
   def test_room_has_capacity
@@ -61,6 +62,12 @@ class TestRoom < MiniTest::Test
   def test_check_room_add_guests__false
     @room2.add_guests(@guests)
     assert_equal(4,@room2.available_space )
+  end
+
+  def test_pay_room()
+    @room1.add_guests(@guests)
+    @room1.pay_for_room(1)
+    assert_equal(5, @room1.bar_tab)
   end
 
 end
