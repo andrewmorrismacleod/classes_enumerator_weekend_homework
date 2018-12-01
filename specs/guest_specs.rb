@@ -1,11 +1,14 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../guest')
+require_relative('../song')
 
 class TestGuest < MiniTest::Test
 
   def setup
     @guest = Guest.new("Steve", 100, "Fear of the Dark")
+    @song1 = Song.new('Fear of the Dark', 'Iron Maiden', 'I am a man who walks alone')
+    @song2 = Song.new('Nothing Else Matters', 'Metallica', 'So close, no matter how far')
   end
 
   def test_guest_name
@@ -29,7 +32,11 @@ class TestGuest < MiniTest::Test
   end
 
   def test_favourite_song
-    assert_equal("Hooray - Fear of the Dark!!", @guest.cheer_favourite_song)
+    assert_equal("Hooray - Fear of the Dark!!", @guest.cheer_song(@song1))
+  end
+
+  def test_other_song
+    assert_equal("OK, I'll sing this, but it is no Fear of the Dark", @guest.cheer_song(@song2))
   end
 
 

@@ -18,8 +18,12 @@ class Guest
     end
   end
 
-  def cheer_favourite_song
-    return "Hooray - #{favourite_song}!!"
+  def cheer_song(song)
+    if song.title == favourite_song
+      return "Hooray - #{favourite_song}!!"
+    else
+      return "OK, I'll sing this, but it is no #{favourite_song}"
+    end
   end
 
 end

@@ -25,11 +25,11 @@ class TestKaraoke < MiniTest::Test
 
     @rooms = [@room1, @room2, @room3]
 
-    @guest1 = Guest.new("Steve", 100)
-    @guest2 = Guest.new("Sarah", 50)
-    @guest3 = Guest.new("John", 10)
-    @guest4 = Guest.new("Bruce", 5)
-    @guest5 = Guest.new("Lars", 1)
+    @guest1 = Guest.new("Steve", 100, 'Fear of the Dark')
+    @guest2 = Guest.new("Sarah", 50, 'Nothing Else Matters')
+    @guest3 = Guest.new("John", 10, 'Ace of Spades')
+    @guest4 = Guest.new("Bruce", 5, 'The Devil Went Down to Georgia')
+    @guest5 = Guest.new("Lars", 1, 'Sweet Caroline')
 
     @guests = [@guest1, @guest2, @guest3, @guest4, @guest5]
 

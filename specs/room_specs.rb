@@ -18,11 +18,11 @@ class TestRoom < MiniTest::Test
     @song3.title => @song3
     }
 
-    @guest1 = Guest.new("Steve", 100)
-    @guest2 = Guest.new("Sarah", 50)
-    @guest3 = Guest.new("John", 10)
-    @guest4 = Guest.new("Bruce", 5)
-    @guest5 = Guest.new("Lars", 1)
+    @guest1 = Guest.new("Steve", 100, 'Fear of the Dark')
+    @guest2 = Guest.new("Sarah", 50, 'Nothing Else Matters')
+    @guest3 = Guest.new("John", 10, 'Ace of Spades')
+    @guest4 = Guest.new("Bruce", 5, 'The Devil Went Down to Georgia')
+    @guest5 = Guest.new("Lars", 1, 'Sweet Caroline')
 
     @guests = [@guest1, @guest2, @guest3, @guest4, @guest5]
 
@@ -69,5 +69,13 @@ class TestRoom < MiniTest::Test
     @room1.pay_for_room(1)
     assert_equal(5, @room1.bar_tab)
   end
+
+  def test_play_song_is_favourite
+    @room1.add_guests(@guests)
+
+
+  end
+
+  def test_play_song_is_not_favourite
 
 end
