@@ -21,7 +21,7 @@ class Karaoke
   end
 
   def all_guests_can_afford_entry?(guests)
-    return !guests.any?{ |guest| guest.wallet < @costpp}
+    return !guests.any?{ |guest| !guest.can_pay?(@costpp)}
   end
 
 end
