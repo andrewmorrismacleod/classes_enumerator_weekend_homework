@@ -16,5 +16,17 @@ class TestGuest < MiniTest::Test
     assert_equal(100, @guest.wallet)
   end
 
+  def test_can_pay__true
+    assert_equal(true, @guest.can_pay?(3))
+  end
+
+  def test_can_pay__false
+    assert_equal(false, @guest.can_pay?(103))
+  end
+
+  def test_payment
+    assert_equal(97, @guest.pay(3))
+  end
+
 
 end
